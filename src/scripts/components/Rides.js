@@ -1,17 +1,31 @@
 var React = require('react');
 var Ride = require('./Ride.js');
 var Router = require('react-router');
+var jquery = require('jquery');
 
 var Rides = React.createClass({
     mixins: [Router.State],
     loadRidesFromServer: function() {
-        // get queryparams: 
+        // get queryparams:
         console.log("queryparams: ", this.getQuery());
         var queryParams = this.getQuery();
         var from = queryParams.from,
             to = queryParams.to,
             date = queryParams.date,
             time = queryParams.time;
+
+        var _this = this;
+      jquery.ajax({
+        url: "http://localhost:8080/getNextPage",
+        data :{
+          origin: from,
+          destination: to,
+          departureDestination: "Sat Mar 07 2015 16:20:52 GMT+0100 (CET)"
+        },
+        success: function(data){
+          console.log(JSON.stringify(data));
+        }
+      });
 
         // make request, set once finished
         setTimeout(function() {
