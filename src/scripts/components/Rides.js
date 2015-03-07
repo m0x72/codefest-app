@@ -1,4 +1,5 @@
 var React = require('react');
+var Ride = require('./Ride.js');
 
 var Rides = React.createClass({
     loadRidesFromServer: function() {
@@ -15,11 +16,16 @@ var Rides = React.createClass({
         this.loadRidesFromServer(from, to, datetime);
     },
     render: function (){
+        console.log("log state: ", this.state);
+        var rides = this.state.rides.map(function (ride) {
+            return (
+                    <Ride data={ride} />
+                   );
+        }, this);
         return (
             <div className="ride_list">
                 <ul>
-                    <li>Name: {this.state.rides}</li>
-                    <li>Buh2</li>
+                    {rides}
                 </ul>
             </div>
         );
