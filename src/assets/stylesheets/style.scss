@@ -1,11 +1,17 @@
-.ride_list {
+/*.ride_list {
     overflow-x: scroll;
     white-space: nowrap;
     .ride_card {
         display: inline-block;
-        margin: 20px;
     }
-}
+}*/
 .ride_card {
-    width: 250px;
+    //width: 250px;
+    border: 1px solid gray;
+    //border-radius: 6px;
+    padding: 20px;
+    //margin: 20px;
+    > ul {
+        display: inline-block;
+    }
 }

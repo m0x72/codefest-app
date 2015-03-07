@@ -1,6 +1,7 @@
 var React = require('react');
 var Ride = require('./Ride.js');
 var Router = require('react-router');
+var RouteHandler = Router.RouteHandler;
 var jquery = require('jquery');
 
 var Rides = React.createClass({
@@ -16,21 +17,24 @@ var Rides = React.createClass({
 
         var _this = this;
       jquery.ajax({
-        url: "http://localhost:8080/getNextPage",
-        data :{
+        url: "http://localhost:3000/getNextPage",
+        data: {
           origin: from,
           destination: to,
-          departureDestination: "Sat Mar 07 2015 16:20:52 GMT+0100 (CET)"
+          //departureDate: "Sat Mar 07 2015 16:20:52 GMT+0100 (CET)"
+          departureDate: new Date(date + " " + time)
         },
         success: function(data){
-          console.log(JSON.stringify(data));
-        }
+          //console.log(JSON.stringify(data));
+          this.setState({rides: data});
+        }.bind(this)
       });
 
         // make request, set once finished
-        setTimeout(function() {
+        /*setTimeout(function() {
             this.setState({rides: [{name: 'Peter'}, {name: 'Peter'}, {name: 'Peter'}, {name: 'Peter'}, {name: 'Peter'}, {name: 'Peter'}]});
         }.bind(this));
+        */
     },
     getInitialState: function () {
         return {rides: []};
@@ -40,9 +44,14 @@ var Rides = React.createClass({
         this.loadRidesFromServer(from, to, datetime);
     },
     render: function (){
+        console.log('ridedetailsparams', this.getParams());
         var rides = this.state.rides.map(function (ride) {
+            var isCurrent = ride.id == this.getParams().rideId;
             return (
+            <div className="ride_card_wrapper">
                     <Ride data={ride} />
+                    {isCurrent ? <RouteHandler data="{ride}" /> : null }
+            </div>
                    );
         }, this);
         return (

@@ -17,16 +17,16 @@ var Search = React.createClass({
                 <form onSubmit={this.handleFormSubmit}>
                     <div className="form-group">
                         <label htmlFor="start">Von</label>
-                        <input type="text" name="from" ref="from" className="form-control"/>
+                        <input type="text" name="from" ref="from" className="form-control" defaultValue="Munich, Germany"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="destination">Nach</label>
-                        <input type="text" name="to" ref="to" className="form-control"/>
+                        <input type="text" name="to" ref="to" className="form-control" defaultValue="Berlin, Germany"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="datetime">Um</label>
-                        <input type="date" name="date" ref="date" className="form-control"/>
-                        <input type="time" name="time" ref="time" className="form-control"/>
+                        <input type="date" name="date" ref="date" className="form-control" defaultValue="2015-03-09"/>
+                        <input type="time" name="time" ref="time" className="form-control" defaultValue="10:00"/>
                     </div>
                     <button type="submit" className="btn btn-default">Yiaoieajfoppie kay yay mf!</button>
                 </form>
