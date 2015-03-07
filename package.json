@@ -1,0 +1,56 @@
+{
+  "name": "rfapp",
+  "version": "0.0.0",
+  "description": "A React/Flux app generate by RF, powered with JavaScript",
+  "main": "build/bundle.js",
+  "dependencies": {
+    "bootstrap": "^3.3.2",
+    "bootstrap-webpack": "0.0.3",
+    "flux": "^2.0.1",
+    "jquery": "^2.1.3",
+    "object-assign": "^2.0.0",
+    "react": "^0.12.2",
+    "react-router": "^0.12.4"
+  },
+  "devDependencies": {
+    "css-loader": "*",
+    "expose-loader": "^0.6.0",
+    "file-loader": "^0.8.1",
+    "jest-cli": "*",
+    "jsx-loader": "*",
+    "react-hot-loader": "*",
+    "react-tools": "*",
+    "sass-loader": "*",
+    "style-loader": "*",
+    "url-loader": "^0.5.5",
+    "webpack": "*",
+    "webpack-dev-server": "*"
+  },
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server --hot --colors --content-base ./build",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "MIT",
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "testFileExtensions": [
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "globals": {
+      "SCRIPTS": "<rootDir>/src/scripts"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/node_modules/"
+    ],
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
+    ]
+  }
+}
