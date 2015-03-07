@@ -12,7 +12,6 @@ var App = React.createClass({
       <header>
         <h1>MyRide</h1>
         <Link to="search">Search</Link>
-        <Link to="rides">Result</Link>
       </header>
       <RouteHandler/>
     </div>

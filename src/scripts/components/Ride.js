@@ -8,9 +8,14 @@ var Rides = React.createClass({
     },
     render: function (){
         return (
-            <li className="ride">
-                Name: {this.props.data.name}
-            </li>
+            <div className="ride_card jumbotron">
+                <div className="container">
+                    <ul>
+                        <li>Name: {this.props.data.name}</li>
+                        <li>Auto: {this.props.data.car}</li>
+                    </ul>
+                </div>
+            </div>
         );
      }
 });

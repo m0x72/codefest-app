@@ -15,20 +15,20 @@ var Search = React.createClass({
     render: function (){
         return (
                 <form onSubmit={this.handleFormSubmit}>
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="start">Von</label>
-                        <input type="text" name="from" ref="from"/>
+                        <input type="text" name="from" ref="from" className="form-control"/>
                     </div>
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="destination">Nach</label>
-                        <input type="text" name="to" ref="to"/>
+                        <input type="text" name="to" ref="to" className="form-control"/>
                     </div>
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="datetime">Um</label>
-                        <input type="date" name="date" ref="date"/>
-                        <input type="time" name="time" ref="time" />
+                        <input type="date" name="date" ref="date" className="form-control"/>
+                        <input type="time" name="time" ref="time" className="form-control"/>
                     </div>
-                    <button type="submit">Yiaoieajfoppie kay yay mf!</button>
+                    <button type="submit" className="btn btn-default">Yiaoieajfoppie kay yay mf!</button>
                 </form>
         );
      }

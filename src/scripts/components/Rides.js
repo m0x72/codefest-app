@@ -15,7 +15,7 @@ var Rides = React.createClass({
 
         // make request, set once finished
         setTimeout(function() {
-            this.setState({rides: [{name: 'Peter'}]});
+            this.setState({rides: [{name: 'Peter'}, {name: 'Peter'}, {name: 'Peter'}, {name: 'Peter'}, {name: 'Peter'}, {name: 'Peter'}]});
         }.bind(this));
     },
     getInitialState: function () {
@@ -33,9 +33,7 @@ var Rides = React.createClass({
         }, this);
         return (
             <div className="ride_list">
-                <ul>
-                    {rides}
-                </ul>
+                {rides}
             </div>
         );
      }
