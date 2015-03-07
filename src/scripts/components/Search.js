@@ -1,4 +1,5 @@
 var React = require('react');
+var Rides = require('./Rides');
 
 var Search = React.createClass({
     handleFormSubmit: function(e){
@@ -6,7 +7,10 @@ var Search = React.createClass({
         var from = this.refs.from.getDOMNode().value.trim();
         var to = this.refs.to.getDOMNode().value.trim();
         var datetime = this.refs.datetime.getDOMNode().value.trim();
+
+
         console.log("Form Submit: <From> " + from + " <To> " + to + " <Datetime> " + datetime);
+        React.render(<Rides/>, document.querySelector('form'));
     },
     render: function (){
         return (
