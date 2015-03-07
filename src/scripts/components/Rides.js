@@ -10,7 +10,8 @@ var Rides = React.createClass({
         var queryParams = this.getQuery();
         var from = queryParams.from,
             to = queryParams.to,
-            datetime = queryParams.datetime;
+            date = queryParams.date,
+            time = queryParams.time;
 
         // make request, set once finished
         setTimeout(function() {

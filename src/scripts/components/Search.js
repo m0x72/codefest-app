@@ -5,13 +5,12 @@ var Search = React.createClass({
     mixins: [Router.Navigation],
     handleFormSubmit: function(e){
         e.preventDefault();
-        var from = this.refs.from.getDOMNode().value.trim();
-        var to = this.refs.to.getDOMNode().value.trim();
-        var datetime = this.refs.datetime.getDOMNode().value.trim();
+        var from = this.refs.from.getDOMNode().value.trim(),
+            to = this.refs.to.getDOMNode().value.trim(),
+            date = this.refs.date.getDOMNode().value.trim(),
+            time = this.refs.time.getDOMNode().value.trim();
 
-
-        console.log("Form Submit: <From> " + from + " <To> " + to + " <Datetime> " + datetime);
-        return this.transitionTo('rides', {}, {from: from, to: to, datetime: datetime});
+        return this.transitionTo('rides', {}, {from: from, to: to, date: date, time: time});
     },
     render: function (){
         return (
@@ -26,7 +25,8 @@ var Search = React.createClass({
                     </div>
                     <div>
                         <label htmlFor="datetime">Um</label>
-                        <input type="text" name="datetime" ref="datetime"/>
+                        <input type="date" name="date" ref="date"/>
+                        <input type="time" name="time" ref="time" />
                     </div>
                     <button type="submit">Yiaoieajfoppie kay yay mf!</button>
                 </form>
