@@ -1,8 +1,17 @@
 var React = require('react');
 var Ride = require('./Ride.js');
+var Router = require('react-router');
 
 var Rides = React.createClass({
+    mixins: [Router.State],
     loadRidesFromServer: function() {
+        // get queryparams: 
+        console.log("queryparams: ", this.getQuery());
+        var queryParams = this.getQuery();
+        var from = queryParams.from,
+            to = queryParams.to,
+            datetime = queryParams.datetime;
+
         // make request, set once finished
         setTimeout(function() {
             this.setState({rides: [{name: 'Peter'}]});
@@ -16,7 +25,6 @@ var Rides = React.createClass({
         this.loadRidesFromServer(from, to, datetime);
     },
     render: function (){
-        console.log("log state: ", this.state);
         var rides = this.state.rides.map(function (ride) {
             return (
                     <Ride data={ride} />
