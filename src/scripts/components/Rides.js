@@ -23,7 +23,7 @@ var Rides = React.createClass({
     componentWillUnmount: function () {
         SearchStore.removeChangeListener(this._onChange);
     },
-    _onChange: functtion () {
+    _onChange: function () {
         this.setState(getRidesState());
     },
     render: function (){

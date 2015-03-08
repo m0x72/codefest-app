@@ -6,7 +6,7 @@ var _ = require('lodash');
 
 var CHANGE_EVENT = 'change';
 
-var __deepFilters = {
+var __defaultFilters = {
     from: null,
     to: null,
     date: null,

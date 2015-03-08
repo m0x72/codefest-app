@@ -1,6 +1,9 @@
 var React = require('react');
 var Router = require('react-router');
 
+var SearchStore = require('../stores/Search.js');
+var SearchAction = require('../actions/Search.js');
+
 var Search = React.createClass({
     mixins: [Router.Navigation],
     handleFormSubmit: function(e){
@@ -10,9 +13,14 @@ var Search = React.createClass({
             date = this.refs.date.getDOMNode().value.trim(),
             time = this.refs.time.getDOMNode().value.trim();
 
-        var searchquery = "from="+from+"&to="+to+"&date="+date+"&time="+time;
+        SearchAction.searchByFilter({
+            from: from,
+            to: to,
+            date: date,
+            time: time
+        }); 
 
-        return this.transitionTo('searchresults', {searchquery: searchquery});
+        return this.transitionTo('searchresults');
     },
     render: function (){
         return (

@@ -1,5 +1,6 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var StoreConstants = require('../constants/StoreConstants');
+var jquery = require('jquery');
 
 var SearchActions = {
     searchByFilter: function(filter) {
@@ -10,9 +11,9 @@ var SearchActions = {
         jquery.ajax({
             url: 'http://localhost:3000/getNextPage',
             data: {
-                origin: from,
-                destination: to,
-                departureDate: new Date(date+' '+time)
+                origin: filter.from,
+                destination: filter.to,
+                departureDate: new Date(filter.date+' '+filter.time)
             },
             success: function(data) {
                 AppDispatcher.handleViewAction({

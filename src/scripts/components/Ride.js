@@ -10,15 +10,11 @@ var Ride = React.createClass({
     },
     componentDidMount: function () {
     },
-    clickHandler: function () {
-        console.log('Ride::clickHandler: ', this.props.data.id);
-        this.transitionTo('ridedetails', {rideId: this.props.data.id});
-    },
     render: function (){
         var isCurrent = this.props.data.id == this.getParams().rideId;
         return (
            <div className="ride_card_wrapper">
-                <Link to="ridedetails" params={{searchquery: this.getParams().searchquery, rideId: this.props.data.id}}>
+                <Link to="searchdetail" params={{rideId: this.props.data.id}}>
                     <div className="ride_card">
                         <img src={this.props.data.imageUrl} />
                         <ul>
