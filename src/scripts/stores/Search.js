@@ -66,7 +66,7 @@ var SearchStore = assign({}, EventEmitter.prototype, {
                 SearchStore.emitChange();
                 break;
             case StoreConstants.SEARCH_DATA_ADD: 
-                _searchData.concat(action.data);
+                _searchData = _searchData.concat(action.data);
                 SearchStore.emitChange();
                 break;
         }

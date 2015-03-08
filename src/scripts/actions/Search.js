@@ -2,6 +2,9 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var StoreConstants = require('../constants/StoreConstants');
 var jquery = require('jquery');
 
+//valid? i do hope :/
+var SearchStore = require('../stores/Search.js');
+
 var SearchActions = {
     searchByFilter: function(filter) {
         AppDispatcher.handleViewAction({
@@ -35,7 +38,7 @@ var SearchActions = {
             url: 'http://localhost:3000/getNextPage',
             data: {
                 origin: filters.from,
-                to: filters.to,
+                destination: filters.to,
                 departureDate: new Date(filters.date+' '+filters.time)
             },
             success: function(data) {
