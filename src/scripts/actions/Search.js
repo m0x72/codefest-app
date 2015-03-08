@@ -56,6 +56,12 @@ var SearchActions = {
         AppDispatcher.handleViewAction({
             actionType: StoreConstants.SEARCH_FILTER_CLEAR,
         });
+    },
+    sortBy: function(value){
+        AppDispatcher.handleViewAction({
+            actionType: StoreConstants.SEARCH_SORT_BY,
+            sortby: value
+        });
     }
 };
 

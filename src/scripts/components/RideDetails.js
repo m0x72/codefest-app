@@ -1,6 +1,8 @@
 var React = require('react');
 var Router = require('react-router');
 
+var CircleComponent = require('./svg/circle.js');
+
 var RideDetails = React.createClass({
     mixins: [Router.Navigation],
     getInitialState: function () {
@@ -13,8 +15,11 @@ var RideDetails = React.createClass({
     },
     render: function (){
         return (
-            <div className="ride_detail" onClick={this.clickHandler}>
-                    <img src={this.props.data.imageUrl} />
+            <div className="ride_detail_container">
+                <div className="ride_detail" onClick={this.clickHandler}>
+                    <div>
+                        <CircleComponent />
+                    </div>
                     <ul>
                         <li>Name: {this.props.data.name}</li>
                         <li>Auto: {this.props.data.car}</li>
@@ -22,6 +27,7 @@ var RideDetails = React.createClass({
                         <li>Of: {this.props.data.car}</li>
                         <li>Bullshiat: {this.props.data.car}</li>
                     </ul>
+                </div>
             </div>
         );
      }

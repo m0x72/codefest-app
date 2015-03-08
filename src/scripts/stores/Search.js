@@ -14,7 +14,7 @@ var __defaultFilters = {
 };
 var _filters = {}; // Search filters
 var _searchData = [];
-
+var _sortBy = 'security'; //default filter
 
 function setFilters() {
     return;
@@ -29,6 +29,10 @@ var SearchStore = assign({}, EventEmitter.prototype, {
 
     getSearchData: function() {
         return _searchData;
+    },
+
+    getSortBy: function() {
+        return _sortBy;
     },
 
     emitChange: function() {
@@ -62,11 +66,22 @@ var SearchStore = assign({}, EventEmitter.prototype, {
                 SearchStore.emitChange();
                 break;
             case StoreConstants.SEARCH_DATA_NEW: 
-                _searchData = action.data;
+                _searchData = _.sortBy(action.data, function(obj) {
+                    return obj[_sortBy];
+                });
                 SearchStore.emitChange();
                 break;
             case StoreConstants.SEARCH_DATA_ADD: 
-                _searchData = _searchData.concat(action.data);
+                _searchData = _searchData.concat(_.sortBy(action.data, function(obj) {
+                    return obj[_sortBy];
+                }));
+                SearchStore.emitChange();
+                break;
+            case StoreConstants.SEARCH_SORT_BY:
+                _searchData = _.sortBy(_searchData, function(obj) {
+                    return obj[action.sortby];
+                });
+                _sortBy = action.sortby;
                 SearchStore.emitChange();
                 break;
         }

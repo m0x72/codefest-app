@@ -21,7 +21,7 @@
     "jsx-loader": "*",
     "react-hot-loader": "*",
     "react-tools": "*",
-    "sass-loader": "*",
+    "sass-load": "jtangelder/sass-loader",
     "style-loader": "*",
     "url-loader": "^0.5.5",
     "webpack": "*",

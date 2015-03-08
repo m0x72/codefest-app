@@ -12,8 +12,8 @@ var Search = require('./components/Search.js');
 var routes = (
     <Route name="app" path="/" handler={App}>
         <DefaultRoute name="search" handler={Search}/>
-        <Route name="searchresults" handler={Rides}>
-            <Route name="searchdetail" path="details/:rideId" handler={RideDetails} />
+        <Route name="searchresults" handler={Rides} ignoreScrollBehavior>
+            <Route name="searchdetail" path="details/:rideId" handler={RideDetails} ignoreScrollBehavior/>
         </Route>
     </Route>
 );
