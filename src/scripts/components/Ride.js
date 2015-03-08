@@ -23,13 +23,28 @@ var Ride = React.createClass({
             switch(this.props.sortBy) {
                 case 'travelTime_stamp':
                     var stamp = new Date(this.props.data.travelTime_stamp);
+                    var imgurl = 'http://cdn.flaticon.com/png/64/59252.png';
                     var time = pad(stamp.getHours(), 2) + ':' + pad(stamp.getMinutes(), 2);
-                    return (<span className="rating travel_time">{time + 'h'}</span>);
-                case 'v_avg': 
-                    return (<span className="rating speed">{this.props.data.v_avg + 'kmh'}</span>);
+                    return (
+                        <div className="col-xs-3 rating">
+                            <img className="img-responsive" src={imgurl} />
+                            <span className="rating travel_time">{time + 'h'}</span>
+                        </div>);
+                case 'v_avg':
+                    var imgurl = "http://cdn.flaticon.com/png/64/53128.png"; 
+                    return (
+                        <div className="col-xs-3 rating">
+                            <img className="img-responsive" src={imgurl} />
+                            <span className="rating speed">{this.props.data.v_avg + 'kmh'}</span>
+                        </div>);
                 case 'security':
                 default:
-                    return (<span className="rating security">{this.props.data.security + '%'}</span>);
+                    var imgurl = "http://cdn.flaticon.com/png/64/63307.png";
+                    return (
+                        <div className="col-xs-3 rating">
+                            <img className="img-responsive" src={imgurl} />
+                            <span className="rating security">{this.props.data.security + '%'}</span>
+                         </div>);
             }
         }.bind(this))();
         return (
@@ -43,10 +58,7 @@ var Ride = React.createClass({
                             <div className="title">{this.props.data.name}</div>
                             <div className="subscript">Audi A3</div>
                         </div>
-                        <div className="col-xs-3 rating">
-                            <img className="img-responsive" src="http://cdn.flaticon.com/png/64/63307.png" />
-                            {ratingElem}
-                        </div>
+                        {ratingElem}
                     </div>
                 </Link>
                 <ReactCSSTransitionGroup transitionName="listcard">
