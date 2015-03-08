@@ -1,0 +1,8 @@
+var StoreConstants = {
+    SEARCH_FILTER_NEW: 'SEARCH_FILTER_NEW',
+    SEARCH_FILTER_CLEAR: 'SEARCH_FILTER_CLEAR',
+    SEARCH_DATA_NEW: 'SEARCH_DATA_NEW',
+    SEARCH_DATA_ADD: 'SEARCH_DATA_ADD'
+};
+module.exports = StoreConstants;
+

@@ -11,10 +11,10 @@ var Search = require('./components/Search.js');
 
 var routes = (
     <Route name="app" path="/" handler={App}>
-        <Route name="rides" handler={Rides}>
-            <Route name="ridedetails" path=":rideId" handler={RideDetails} />
-        </Route>
         <DefaultRoute name="search" handler={Search}/>
+        <Route name="searchresults" handler={Rides}>
+            <Route name="searchdetail" path="details/:rideId" handler={RideDetails} />
+        </Route>
     </Route>
 );
 

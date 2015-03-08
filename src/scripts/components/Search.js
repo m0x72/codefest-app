@@ -10,7 +10,9 @@ var Search = React.createClass({
             date = this.refs.date.getDOMNode().value.trim(),
             time = this.refs.time.getDOMNode().value.trim();
 
-        return this.transitionTo('rides', {}, {from: from, to: to, date: date, time: time});
+        var searchquery = "from="+from+"&to="+to+"&date="+date+"&time="+time;
+
+        return this.transitionTo('searchresults', {searchquery: searchquery});
     },
     render: function (){
         return (
