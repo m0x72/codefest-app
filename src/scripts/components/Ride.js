@@ -4,6 +4,12 @@ var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
 
+function pad(n, width, z) {
+      z = z || '0';
+      n = n + '';
+      return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
+
 var Ride = React.createClass({
     mixins: [Router.State],
     getInitialState: function () {
@@ -13,6 +19,19 @@ var Ride = React.createClass({
     },
     render: function (){
         var isCurrent = this.props.data.id == this.getParams().rideId;
+        var ratingElem = (function() {
+            switch(this.props.sortBy) {
+                case 'travelTime_stamp':
+                    var stamp = new Date(this.props.data.travelTime_stamp);
+                    var time = pad(stamp.getHours(), 2) + ':' + pad(stamp.getMinutes(), 2);
+                    return (<span className="rating travel_time">{time + 'h'}</span>);
+                case 'v_avg': 
+                    return (<span className="rating speed">{this.props.data.v_avg + 'kmh'}</span>);
+                case 'security':
+                default:
+                    return (<span className="rating security">{this.props.data.security + '%'}</span>);
+            }
+        }.bind(this))();
         return (
            <div className="ride_card_wrapper">
                 <Link to={isCurrent ? "searchresults" : "searchdetail"} params={isCurrent ? null : {rideId: this.props.data.id}}>
@@ -26,7 +45,7 @@ var Ride = React.createClass({
                         </div>
                         <div className="col-xs-2 rating">
                             <img className="img-responsive" src="http://cdn.flaticon.com/png/64/63307.png" />
-                            <span className="rating">{this.props.data.security}</span>
+                            {ratingElem}
                         </div>
                     </div>
                 </Link>

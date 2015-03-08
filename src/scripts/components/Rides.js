@@ -43,16 +43,16 @@ var Rides = React.createClass({
     handleSortByDeparture: function(e) {
         return this.handleSort('travelTime_stamp', e);
     },
-    handleSortByDuration: function(e) {
-        return this.handleSort('estimatedDuration_stamp', e);
+    handleSortBySpeed: function(e) {
+        return this.handleSort('v_avg', e);
     },
     render: function (){
+        var curr_sortby = SearchStore.getSortBy();
         var rides = this.state.rides.map(function (ride) {
             return (
-                    <Ride data={ride} />
+                    <Ride data={ride} sortBy={curr_sortby}/>
                    );
         }, this);
-        var curr_sortby = SearchStore.getSortBy();
         return (
         <div className="search_results_view">
             <div className="filter_nav">
@@ -64,7 +64,7 @@ var Rides = React.createClass({
                         <a href="#" onClick={this.handleSortByDeparture} className={curr_sortby == 'travelTime_stamp' ? 'active' : ''}>Departure</a>
                     </li>
                     <li role="presentation">
-                        <a href="#" onClick={this.handleSortByDuration} className={curr_sortby == 'estimatedDuration_stamp' ? 'active' : ''}>Duration</a>
+                        <a href="#" onClick={this.handleSortBySpeed} className={curr_sortby == 'v_avg' ? 'active' : ''}>Speed</a>
                     </li>
                 </ul>
             </div>
