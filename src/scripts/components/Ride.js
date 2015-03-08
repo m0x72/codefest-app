@@ -36,14 +36,14 @@ var Ride = React.createClass({
            <div className="ride_card_wrapper">
                 <Link to={isCurrent ? "searchresults" : "searchdetail"} params={isCurrent ? null : {rideId: this.props.data.id}}>
                     <div className="ride_card row">
-                        <div className="col-xs-3">
+                        <div className="col-xs-4">
                             <img className="img-responsive profile_img" src={this.props.data.imageUrl} />
                         </div>
-                        <div className="col-xs-7 info">
+                        <div className="col-xs-5 info">
                             <div className="title">{this.props.data.name}</div>
                             <div className="subscript">Audi A3</div>
                         </div>
-                        <div className="col-xs-2 rating">
+                        <div className="col-xs-3 rating">
                             <img className="img-responsive" src="http://cdn.flaticon.com/png/64/63307.png" />
                             {ratingElem}
                         </div>

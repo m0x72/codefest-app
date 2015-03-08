@@ -67,18 +67,21 @@ var SearchStore = assign({}, EventEmitter.prototype, {
                 break;
             case StoreConstants.SEARCH_DATA_NEW: 
                 _searchData = _.sortBy(action.data, function(obj) {
+                    if (_sortBy == 'security') return -obj[action.sortby];
                     return obj[_sortBy];
                 });
                 SearchStore.emitChange();
                 break;
             case StoreConstants.SEARCH_DATA_ADD: 
                 _searchData = _searchData.concat(_.sortBy(action.data, function(obj) {
+                    if (_sortBy == 'security') return -obj[action.sortby];
                     return obj[_sortBy];
                 }));
                 SearchStore.emitChange();
                 break;
             case StoreConstants.SEARCH_SORT_BY:
                 _searchData = _.sortBy(_searchData, function(obj) {
+                    if (action.sortby == 'security') return -obj[action.sortby];
                     return obj[action.sortby];
                 });
                 _sortBy = action.sortby;
