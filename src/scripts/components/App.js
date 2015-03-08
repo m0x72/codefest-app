@@ -10,7 +10,7 @@ var App = React.createClass({
     return (
     <div>
       <header>
-        <h1>MyRide</h1>
+        <h1>SafeRide</h1>
         <Link to="search">Search</Link>
       </header>
       <RouteHandler/>

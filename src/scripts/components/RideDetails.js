@@ -52,13 +52,6 @@ var RideDetails = React.createClass({
                         <div className="col-xs-6">Preis</div>
                         <div className="col-xs-6">{this.props.data.price}</div>
                     </div>
-                    <ul>
-                        <li>Name: {this.props.data.name}</li>
-                        <li>Auto: {this.props.data.car}</li>
-                        <li>Piece: {this.props.data.car}</li>
-                        <li>Of: {this.props.data.car}</li>
-                        <li>Bullshiat: {this.props.data.car}</li>
-                    </ul>
                 </div>
             </div>
         );

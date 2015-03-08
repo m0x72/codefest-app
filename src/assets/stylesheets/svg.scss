@@ -89,10 +89,16 @@ li.progressCircle:after {
 
 svg.circle {
     stroke-dashoffset: 0;
-    transition: stroke-dashoffset 1s linear;
+    transition: stroke-dashoffset 5s linear;
     stroke: #666;
     stroke-width: 1em;
     transform: rotate(40deg);
+}
+.listcard-enter.listcard-enter-active svg.circle {
+    stroke-dashoffset: 0;
+}
+svg.circle circle {
+    transition: stroke-dashoffset 2s linear;
 }
 svg.circle .bar {
     stroke: #FF9F1E;
