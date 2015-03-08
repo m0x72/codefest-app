@@ -67,7 +67,7 @@ var SearchStore = assign({}, EventEmitter.prototype, {
                 break;
             case StoreConstants.SEARCH_DATA_NEW: 
                 _searchData = _.sortBy(action.data, function(obj) {
-                    if (_sortBy == 'security') return -obj[action.sortby];
+                    if (_sortBy == 'security') return -obj[_sortBy];
                     return obj[_sortBy];
                 });
                 SearchStore.emitChange();

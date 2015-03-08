@@ -18,7 +18,7 @@
 
 /* Container */
 
-.progressContainer {
+.progressCircleContainer {
   position: relative;
   display: inline-block;
   padding: 0;
@@ -27,7 +27,7 @@
 
 /* Item */
 
-li.progress {
+li.progressCircle {
   height: 100px;
   display: inline-block;
   position: relative;
@@ -38,7 +38,7 @@ li.progress {
   margin: 2rem;
 }
 
-li.progress:before {
+li.progressCircle:before {
   content: attr(data-name);
   position: absolute;
   width: 100%;
@@ -46,7 +46,7 @@ li.progress:before {
   font-weight: 400;
 }
 
-li.progress:after {
+li.progressCircle:after {
   content: attr(data-percent);
   position: absolute;
   width: 100%;
@@ -56,12 +56,12 @@ li.progress:after {
   text-align: center;
 }
 
-.progress svg {
+.progressCircle svg {
   width: 10rem;
   height: 10rem;
 }
 
-.progress svg:nth-child(2) {
+.progressCircle svg:nth-child(2) {
   position: absolute;
   left: 0;
   top: 0;
@@ -71,15 +71,15 @@ li.progress:after {
   -ms-transform: rotate(-90deg);
 }
 
-.progress svg:nth-child(2) path {
+.progressCircle svg:nth-child(2) path {
   fill: none;
   stroke-width: 25;
   stroke-dasharray: 629;
-  stroke: rgba(255, 255, 255, 0.9);
-  -webkit-animation: load 10s;
-  -moz-animation: load 10s;
-  -o-animation: load 10s;
-  animation: load 10s;
+  stroke: rgba(255, 255, 255, 1);
+  -webkit-animation: load 1s;
+  -moz-animation: load 1s;
+  -o-animation: load 1s;
+  animation: load 1s;
 }
 
 
@@ -92,6 +92,7 @@ svg.circle {
     transition: stroke-dashoffset 1s linear;
     stroke: #666;
     stroke-width: 1em;
+    transform: rotate(40deg);
 }
 svg.circle .bar {
     stroke: #FF9F1E;

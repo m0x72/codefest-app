@@ -9,9 +9,9 @@ var Circle = React.createClass({
     },
     render: function (){
         return (
-        <svg className="circle" width="100" height="50" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <circle r="40" cx="50" cy="50" fill="transparent" style={{strokeDasharray: 251.33, strokeDashoffset: 0}}></circle>
-            <circle className="bar" r="40" cx="50" cy="50" fill="transparent" style={{strokeDasharray: 251.33, strokeDashoffset: 10}}></circle>
+        <svg className="circle" width="120" height="120" viewPort="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle r="55" cx="60" cy="60" fill="transparent" style={{strokeDasharray: 346, strokeDashoffset: 0, strokeWidth: 5}}></circle>
+            <circle className="bar" r="55" cx="60" cy="60" fill="transparent" style={{strokeDasharray: 346, strokeDashoffset: 346-(this.props.percent/100*346), strokeWidth: 5}}></circle>
         </svg>
         );
      }

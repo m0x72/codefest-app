@@ -9,7 +9,7 @@ var Circle = React.createClass({
     },
     render: function (){
         return (
-    <li className="progress" data-name="SVG Skill" data-percent="13%"> 
+    <li className="progressCircle" data-name="SVG Skill" data-percent="13%"> 
         <svg viewBox="-10 -10 220 220">
              <g fill="none" strokeWidth="3" transform="translate(100,100)">
                    <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
