@@ -29,6 +29,9 @@
 }
 
 $ride_detail_height: 400px;
+.ride_detail_container {
+    height: $ride_detail_height;
+}
 .ride_detail {
     height: $ride_detail_height;
     background: darkgray;
@@ -78,19 +81,19 @@ $ride_detail_height: 400px;
 .listcard-enter {
     opacity: 0;
     transition: all 0.5s ease-in;
-        height: 0;
+    height: 0;
     &.listcard-enter-active {
         opacity: 1;
-            height: $ride_detail_height;
+        height: $ride_detail_height;
     }
 }
 .listcard-leave {
     opacity: 1;
     transition: all 0.5s ease-in;
-        height: $ride_detail_height;
+    height: $ride_detail_height;
     &.listcard-leave-active {
         opacity: 0;
-            height: 0;
+        height: 0;
     }
 }
 

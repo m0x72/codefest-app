@@ -5,6 +5,9 @@ var jquery = require('jquery');
 //valid? i do hope :/
 var SearchStore = require('../stores/Search.js');
 
+var expressurl = "http://localhost:3000/getNextPage";
+//var expressurl = "http://10.131.0.146:3000/getNextPage";
+
 var SearchActions = {
     searchByFilter: function(filter) {
         AppDispatcher.handleViewAction({
@@ -12,7 +15,8 @@ var SearchActions = {
             filter: filter
         });
         jquery.ajax({
-            url: 'http://localhost:3000/getNextPage',
+            //url: 'http://localhost:3000/getNextPage',
+            url: expressurl,
             data: {
                 origin: filter.from,
                 destination: filter.to,
@@ -35,7 +39,8 @@ var SearchActions = {
     searchNext: function() {
         var filters = SearchStore.getFilters();
         jquery.ajax({
-            url: 'http://localhost:3000/getNextPage',
+            //url: 'http://localhost:3000/getNextPage',
+            url: expressurl,
             data: {
                 origin: filters.from,
                 destination: filters.to,

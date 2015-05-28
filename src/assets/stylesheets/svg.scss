@@ -94,9 +94,9 @@ svg.circle {
     stroke-width: 1em;
     transform: rotate(40deg);
 }
-.listcard-enter.listcard-enter-active svg.circle {
-    stroke-dashoffset: 0;
-}
+//.listcard-enter.listcard-enter-active svg.circle {
+//    stroke-dashoffset: 0;
+//}
 svg.circle circle {
     transition: stroke-dashoffset 2s linear;
 }

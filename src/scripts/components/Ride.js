@@ -3,7 +3,7 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
-
+var moment = require('moment');
 function pad(n, width, z) {
       z = z || '0';
       n = n + '';
@@ -25,6 +25,7 @@ var Ride = React.createClass({
                     var stamp = new Date(this.props.data.travelTime_stamp);
                     var imgurl = 'http://cdn.flaticon.com/png/64/59252.png';
                     var time = pad(stamp.getHours(), 2) + ':' + pad(stamp.getMinutes(), 2);
+                    var time = moment(stamp).format('HH:mm');
                     return (
                         <div className="col-xs-3 rating">
                             <img className="img-responsive" src={imgurl} />

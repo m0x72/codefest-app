@@ -38,7 +38,7 @@ var Search = React.createClass({
                         <input type="date" name="date" ref="date" className="form-control" defaultValue="2015-03-09"/>
                         <input type="time" name="time" ref="time" className="form-control" defaultValue="10:00"/>
                     </div>
-                    <button type="submit" className="btn btn-default">Yiaoieajfoppie kay yay mf!</button>
+                    <button type="submit" className="btn btn-default">Search!</button>
                 </form>
         );
      }
